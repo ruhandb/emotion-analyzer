@@ -1,10 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const natural = require('natural');
-const afinn = import('afinn-165');
+const AFINN  = import('afinn-165');
 
 // Initialize Express app
 const app = express();
+
+// Set up AFINN sentiment analyzer
+const afinn = new AFINN();
 
 // Use bodyParser middleware to parse request body
 app.use(bodyParser.json());
