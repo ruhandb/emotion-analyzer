@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: Sentiment Analysis and Emotion Recognition API
+  version: 1.0.0
+  description: API for sentiment analysis and emotion recognition using Natural Language Processing (NLP) and machine learning techniques.
+servers:
+  - url: http://localhost:3000
+paths:
+  /analyzeSentiment:
+    post:
+      summary: Analyze sentiment and emotions of input text
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: The text to analyze
+                  example: "I love this product! It's amazing!"
+              required:
+                - text
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sentiment:
+                    type: string
+                    description: The sentiment of the input text, which can be "positive", "negative", or "neutral"
+                    example: positive
+                  emotions:
+                    type: object
+                    description: An object with the emotions associated with the input text, where each emotion is represented by a score between 0 and 1 (inclusive)
+                    properties:
+                      joy:
+                        type: number
+                        example: 1
+                      anger:
+                        type: number
+                        example: 0
+                      fear:
+                        type: number
+                        example: 0
+                      sadness:
+                        type: number
+                        example: 0
+                      surprise:
+                        type: number
+                        example: 0
+      tags:
+        - Sentiment Analysis

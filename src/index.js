@@ -9,6 +9,10 @@ const app = express();
 // Use bodyParser middleware to parse request body
 app.use(bodyParser.json());
 
+app.get('/healthcheck', (req, res) => {
+    res.status(200).send('OK');
+});
+
 // Define endpoint for sentiment analysis
 app.post('/analyzeSentiment', (req, res) => {
   const text = req.body.text;
