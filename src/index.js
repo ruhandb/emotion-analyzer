@@ -54,6 +54,7 @@ app.post('/analyzeSentiment', (req, res) => {
 });
 
 // Start server
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
+let port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log('Server started on port 8080');
 });
